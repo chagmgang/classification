@@ -20,12 +20,12 @@ def run_epoch(net, criterion, optimizer, dataloader, device, is_train):
         image = image.to(device)
         target = target.to(device)
 
-        if is_train:
-            optimizer.zero_grad()
-            logit = net(image)
-            loss = criterion(logit, target)
-            loss.backward()
-            optimizer.step()
+        if is_train:        # feed forward -> loss -> backward 를 짜보세요
+            # 
+            # 
+            # 
+            # 
+            # 
 
         else:
             with torch.no_grad():
@@ -49,14 +49,14 @@ def run_epoch(net, criterion, optimizer, dataloader, device, is_train):
 def main():
 
     device = torch.device(0) if torch.cuda.is_available() else torch.device('cpu')
-    train_dataloader = datasets.make_dataset(is_train=True, batch_size=128)
-    valid_dataloader = datasets.make_dataset(is_train=False, batch_size=128)
+    # train_dataloader = datasets.make_dataset(is_train=, batch_size=128)       # is_train 은 무엇일까요??
+    # valid_dataloader = datasets.make_dataset(is_train=, batch_size=128)       # is_train 은 무엇일까요??
 
-    net = model.Model(num_class=100)
+    # net = model.Model(num_class)      # 클래스의 개수는 어떻게 해야할까요?
     net = net.to(device)
-    criterion = torch.nn.CrossEntropyLoss()
+    # criterion =                       # criterion을 정의해보세요
     optimizer = torch.optim.SGD(net.parameters(), lr=0.0001, momentum=0.9)
-    epochs = 100
+    # epochs =          # 에포크는 몇으로 해야할까요?
 
     for epoch in range(epochs):
 
