@@ -7,10 +7,8 @@ class Model(nn.Module):
 
     def __init__(self, num_class):
         super(Model, self).__init__()
-
-        self.model = torchvision.models.resnet50(pretrained=True)
-        in_feature = self.model.fc.in_features
-        self.model.fc = nn.Linear(in_feature, num_class)
+        
+        #### torchvision에서 resnet50을 가져와 모델을 만들어보세요
 
     def forward(self, image):
         logit = self.model(image)
