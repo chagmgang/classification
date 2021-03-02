@@ -12,7 +12,7 @@ def run_epoch(net, criterion, optimizer, dataloader, device, is_train):
     if is_train:
         net = net.train()
     else:
-        net = net.train()
+        net = net.eval()
 
     for data in tqdm.tqdm(dataloader):
 
